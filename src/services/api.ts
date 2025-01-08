@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const AUTH_URL = 'https://bankati-auth.onrender.com';
-const WALLET_URL = 'https://bankat1-wallet.onrender.com/api';
+const WALLET_URL = 'https://bankat1-wallet.onrender.com';
 
 const getAuthToken = () => localStorage.getItem('token') ? `Bearer ${localStorage.getItem('token')}` : '';
 
@@ -31,10 +31,5 @@ export const walletApi = axios.create({
             return config;
         },
         (error) => Promise.reject(error)
-    );
-
-    instance.interceptors.response.use(
-        response => response,
-        error => Promise.reject(error)
     );
 });
