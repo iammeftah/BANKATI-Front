@@ -4,20 +4,16 @@ import { api } from './api';
 export const authService = {
     async login(credentials: LoginCredentials): Promise<AuthResponse> {
         try {
-            const response = await api.post<AuthResponse>('/auth/authenticate', credentials);
-            console.log('Auth Response:', response.data); // Add this line to debug
+            const response = await api.post<AuthResponse>('auth/authenticate', credentials);
 
             if (response.data.token && response.data.user) {
                 localStorage.setItem('token', response.data.token);
                 localStorage.setItem('user', JSON.stringify(response.data.user));
-                localStorage.setItem('userId', response.data.user.id.toString()); // Convert number to string
-                console.log('Stored userId:', localStorage.getItem('userId')); // Add this line to debug
-
+                localStorage.setItem('userId', response.data.user.id.toString());
                 return response.data;
             }
             throw new Error('Invalid response format');
         } catch (error: any) {
-            // Clear any existing auth data
             this.logout();
             throw error;
         }
