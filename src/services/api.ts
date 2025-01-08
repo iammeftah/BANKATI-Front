@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-const AUTH_URL = 'https://bankati-auth.onrender.com';
-const WALLET_URL = 'https://bankat1-wallet.onrender.com';
 
 const getAuthToken = () => localStorage.getItem('token') ? `Bearer ${localStorage.getItem('token')}` : '';
 
