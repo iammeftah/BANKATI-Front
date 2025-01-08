@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const EMAIL_URL = process.env.EMAIL_URL || 'http://localhost:8093';
+const EMAIL_URL = 'https://notifcationservice.onrender.com';
 
 
 export const emailService = {
