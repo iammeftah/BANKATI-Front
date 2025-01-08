@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const AUTH_URL = 'https://bankati-auth.onrender.com';
-const WALLET_URL = process.env.WALLET_URL || 'http://localhost:8092/api';
+const AUTH_URL = 'https://bankati-auth.onrender.com/api';
+const WALLET_URL = process.env.WALLET_URL || 'https://bankat1-wallet.onrender.com/api';
 
 
 // Helper function to get token
